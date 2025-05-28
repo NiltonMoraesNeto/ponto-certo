@@ -3,9 +3,8 @@ import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { schemaNewPassword } from "../schemas/new-password-schema";
-import { resetCodeDelete, resetPassword } from "../services/usuarios";
+import { resetPassword } from "../services/usuarios";
 import { useUserStore } from "../stores/use-user";
-import { isSuccessRequest } from "../utils/response-request";
 import {
   Dialog,
   DialogTitle,
@@ -79,8 +78,7 @@ export function ModalInputToken({
       status?: number;
     };
 
-    if (isSuccessRequest(response?.status)) {
-      await resetCodeDelete(emailUser, token);
+    if (response) {
       localStorage.removeItem("resetCode");
       updateEmailUser("");
       setMsgAlert(t("validateToken.msgSuccess"));

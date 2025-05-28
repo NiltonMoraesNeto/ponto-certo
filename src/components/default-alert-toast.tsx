@@ -25,10 +25,9 @@ const DefaultAlertToast: React.FC<DefaultAlertToastProps> = ({
   onActionClick,
 }) => {
   const handleClose = (
-    event: React.SyntheticEvent | Event,
+    _event: React.SyntheticEvent | Event,
     reason?: SnackbarCloseReason
   ) => {
-    console.log("🚀 event - ", event);
     if (reason === "clickaway") {
       return;
     }

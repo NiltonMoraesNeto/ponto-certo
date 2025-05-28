@@ -48,10 +48,25 @@ export const fetchLogin = async (form: LoginForm) => {
 
 export const resetPasswordSendToken = async (email: string) => {
   try {
-    const response = await api.post("/usuarios/forgot-password", { email });
-    return response.data;
+    // Busca o usuário pelo email
+    const response = await api.get("/usuarios", { params: { email } });
+    const users = response.data;
+
+    if (!users || users.length === 0) {
+      // Usuário não encontrado
+      return false;
+    }
+
+    const user = users[0];
+    // Gera um código de 4 dígitos aleatórios
+    const resetCode = Math.floor(1000 + Math.random() * 9000).toString();
+
+    // Atualiza o usuário com o novo resetCode
+    await api.patch(`/usuarios/${user.id}`, { resetCode });
+
+    return { ...user, resetCode };
   } catch (error) {
-    console.error("Erro no fetchLogin:", error);
+    console.error("Erro no resetPasswordSendToken:", error);
     return false;
   }
 };
@@ -62,27 +77,28 @@ export const resetPassword = async (
   newPassword: string
 ) => {
   try {
-    const response = await api.put("/usuarios/reset-password", {
-      email,
-      resetCode,
-      newPassword,
+    // 1. Busca o usuário pelo email e resetCode
+    const response = await api.get("/usuarios", {
+      params: { email, resetCode },
     });
-    return response;
+    const users = response.data;
+
+    if (!users || users.length === 0) {
+      // Usuário ou código inválido
+      return { error: "Código ou email inválido" };
+    }
+
+    const user = users[0];
+
+    // 2. Atualiza a senha (e limpa o resetCode)
+    await api.patch(`/usuarios/${user.id}`, {
+      password: newPassword,
+      resetCode: "",
+    });
+
+    return { success: true };
   } catch (error) {
     console.error("Erro no resetPassword:", error);
-    return error;
-  }
-};
-
-export const resetCodeDelete = async (email: string, resetCode: string) => {
-  try {
-    const response = await api.put("/usuarios/clean-resetCode", {
-      email,
-      resetCode,
-    });
-    return response;
-  } catch (error) {
-    console.error("Erro no resetCode Delete:", error);
-    return error;
+    return { error: error instanceof Error ? error.message : String(error) };
   }
 };

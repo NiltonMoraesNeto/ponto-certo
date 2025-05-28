@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { LogOut } from "lucide-react";
 import { useAuth } from "../contexts/auth-context";
 import { ThemeToggle } from "./theme-toogle";
+import { Avatar } from "@mui/material";
 
 const Header: React.FC = () => {
   const { logout, dataUser } = useAuth();
@@ -21,9 +22,10 @@ const Header: React.FC = () => {
         </div>
       </div>
       <div className="flex items-center space-x-4">
-        <label className="text-primaryBlue dark:text-white max-sm:hidden">
+        <label className="text-primaryBlue dark:text-white">
           {dataUser?.nome}
         </label>
+        <Avatar alt="Avatar User" src={dataUser?.avatar} />
         <ThemeToggle />
         <button
           className="focus:outline-none hover:text-gray-300 dark:bg-indigo-950 dark:text-white"
