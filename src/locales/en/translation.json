@@ -1,0 +1,59 @@
+{
+    "login":{
+      "title":"Accurate Time",
+      "subTtitle":"Your workday, recorded with precision.",
+      "noAccount":"No account created?",
+      "buttonCreate":"Create an account",
+      "inputUser":"Email",
+      "inputPassword":"Password",
+      "labelForgotPassword":"Forgot your password?",
+      "labelResetPassword":"Reset password",
+      "labelDevelopedBy":"Developed by",
+      "buttonAccess":"Access",
+      "errorLogin":"Invalid data"
+    },
+    "resetPassword":{
+      "title":"Reset password",
+      "subTitle":"Enter your registered email address to receive the validation token.",
+      "inputEmail":"Email",
+      "placeholderEmail":"Enter your email",
+      "labelToken":"Already have your token? Click here to validate and change your password",
+      "buttonCancel":"Cancel",
+      "buttonSend":"Send",
+      "msgSendToken":"Token sent successfully",
+      "msgEmailNotFound":"Email not found",
+      "msgErrorSending":"Error sending request",
+      "requiredMsgEmail":"Email required"
+    },
+    "validateToken":{
+      "title":"Reset password",
+      "subTitle":"Enter the token that was sent to your email address.",
+      "newPassword":"Enter the new password and confirm.",
+      "buttonValidateToken":"Validate token",
+      "buttonCancel":"Cancel",
+      "labelValidToken":"Valid token",
+      "labelInvalidToken":"Invalid token",
+      "msgSuccess":"Password changed successfully",
+      "msgError":"Error changing password",
+      "labelNewPassword":"New password",
+      "labelConfirmNewPassword":"Confirm new password",
+      "buttonChangePassword":"Change password"
+    },
+    "home":{
+      "title":"Welcome",
+      "notFound":"404 - Page Not Found"
+    },
+    "sidebar":{
+      "morning":"Good Morning",
+      "afternoon":"Good Afternoon",
+      "evening":"Good Evening",
+      "optionClockIn":"Clock In",
+      "optionRegistration":"Registrations",
+      "menuRegistration":{
+        "profiles":"Profile",
+        "tasks":"Tasks",
+        "users":"Users"
+      }
+    }
+  }
+  

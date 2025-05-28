@@ -1,0 +1,59 @@
+{
+    "login":{
+      "title":"Registro Exacto",
+      "subTtitle":"Tu jornada laboral, registrada con precisión.",
+      "noAccount":"¿No ha creado una cuenta?",
+      "buttonCreate":"Crear una cuenta",
+      "inputUser":"Correo electrónico",
+      "inputPassword":"Contraseña",
+      "labelForgotPassword":"¿Olvidó su contraseña?",
+      "labelResetPassword":"Restablecer contraseña",
+      "labelDevelopedBy":"Desarrollado por",
+      "buttonAccess":"Acceder",
+      "errorLogin":"Datos no válidos"
+    },
+    "resetPassword":{
+      "title":"Restablecer contraseña",
+      "subTitle":"Introduzca su dirección de correo electrónico registrada para recibir el token de validación.",
+      "inputEmail":"Correo Electrónico",
+      "placeholderEmail":"Introduzca su correo electrónico",
+      "labelToken":"¿Ya tiene su contraseña? Haga clic aquí para validar y cambiar su contraseña",
+      "buttonCancel":"Cancelar",
+      "buttonSend":"Enviar",
+      "msgSendToken":"Token enviado correctamente",
+      "msgEmailNotFound":"Correo electrónico no encontrado",
+      "msgErrorSending":"Error al enviar la solicitud",
+      "requiredMsgEmail":"Correo electrónico requerido"
+    },
+    "validateToken":{
+      "title":"Restablecer contraseña",
+      "subTitle":"Introduzca el token que se le envió a su dirección de correo electrónico.",
+      "newPassword":"Introduzca su nueva contraseña y confírmela.",
+      "buttonValidateToken":"Validar token",
+      "buttonCancel":"Cancelar",
+      "labelValidToken":"Token válido",
+      "labelInvalidToken":"Token no válido",
+      "msgSuccess":"Contraseña modificada correctamente",
+      "msgError":"Error al cambiar la contraseña",
+      "labelNewPassword":"Nueva contraseña",
+      "labelConfirmNewPassword":"Confirmar nueva contraseña",
+      "buttonChangePassword":"Cambiar contraseña"
+    },
+    "home":{
+      "title":"Bienvenido",
+      "notFound":"404 - Página no encontrada"
+    },
+    "sidebar":{
+      "morning":"Buenos Días",
+      "afternoon":"Buenas Tardes",
+      "evening":"Buenas Noches",
+      "optionClockIn":"Registrar Entrada",
+      "optionRegistration":"Registros",
+      "menuRegistration":{
+        "profiles":"Perfil",
+        "tasks":"Tareas",
+        "users":"Usuarios"
+      }
+    }
+  }
+  

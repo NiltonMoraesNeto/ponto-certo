@@ -1,0 +1,59 @@
+{
+    "login":{
+      "title":"Ponto Certo",
+      "subTtitle":"Sua jornada de trabalho, registrada com precisão.",
+      "noAccount":"Não tem conta criada?",
+      "buttonCreate":"Criar Conta",
+      "inputUser":"Email",
+      "inputPassword":"Senha",
+      "labelForgotPassword":"Esqueceu a senha?",
+      "labelResetPassword":"Resetar a senha",
+      "labelDevelopedBy":"Desenvolvido por",
+      "buttonAccess":"Acessar",
+      "errorLogin":"Dados inválidos"
+    },
+    "resetPassword":{
+      "title":"Resetar a senha",
+      "subTitle":"Digite seu email cadastrado para receber o token de validação.",
+      "inputEmail":"Email",
+      "placeholderEmail":"Digite seu email",
+      "labelToken":"Já tem o token? Clique aqui para validar e trocar a senha",
+      "buttonCancel":"Cancelar",
+      "buttonSend":"Enviar",
+      "msgSendToken":"Token enviado com sucesso",
+      "msgEmailNotFound":"Email não encontrado",
+      "msgErrorSending":"Erro ao enviar solicitação",
+      "requiredMsgEmail":"Email é obrigatório"
+    },
+    "validateToken":{
+      "title":"Resetar a senha",
+      "subTitle":"Digite o token que foi enviado para seu email.",
+      "newPassword":"Digite a nova senha e confirme.",
+      "buttonValidateToken":"Validar token",
+      "buttonCancel":"Cancelar",
+      "labelValidToken":"Token válido",
+      "labelInvalidToken":"Token inválido",
+      "msgSuccess":"Senha alterada com sucesso",
+      "msgError":"Erro ao alterar a senha",
+      "labelNewPassword":"Nova senha",
+      "labelConfirmNewPassword":"Confirmar nova senha",
+      "buttonChangePassword":"Alterar senha"
+    },
+    "home":{
+      "title":"Bem Vindo",
+      "notFound":"404 - Página Não Encontrada"
+    },
+    "sidebar":{
+      "morning":"Bom Dia",
+      "afternoon":"Boa Tarde",
+      "evening":"Boa Noite",
+      "optionClockIn":"Registrar Ponto",
+      "optionRegistration":"Cadastros",
+      "menuRegistration":{
+        "profiles":"Perfil",
+        "tasks":"Tarefas",
+        "users":"Usuários"
+      }
+    }
+  }
+  
