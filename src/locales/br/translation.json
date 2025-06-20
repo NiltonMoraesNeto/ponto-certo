@@ -41,7 +41,13 @@
     },
     "home":{
       "title":"Bem Vindo",
-      "notFound":"404 - Página Não Encontrada"
+      "notFound":"404 - Página Não Encontrada",
+      "year":"Ano",
+      "month":"Mês",
+      "fortnight":"Quinzena",
+      "activeActivities":"Atividades Ativas",
+      "totalHours":"Total de Horas da Quinzena",
+      "billingValue":"Valor Faturamento da Quinzena"
     },
     "sidebar":{
       "morning":"Bom Dia",
@@ -53,6 +59,19 @@
         "profiles":"Perfil",
         "tasks":"Tarefas",
         "users":"Usuários"
+      }
+    },
+    "tasks":{
+      "title":"Lista de Tarefas",
+      "table":{
+        "id":"ID",
+        "description":"Descrição",
+        "dateCreated":"Data Criação",
+        "actions":"Ações",
+        "play":"Iniciar",
+        "stop":"Parar",
+        "edit":"Editar",
+        "delete":"Deletar"
       }
     }
   }

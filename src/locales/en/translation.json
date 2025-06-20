@@ -41,7 +41,13 @@
     },
     "home":{
       "title":"Welcome",
-      "notFound":"404 - Page Not Found"
+      "notFound":"404 - Page Not Found",
+      "year": "Year",
+      "month": "Month",
+      "fortnight": "Fortnight",
+      "activeActivities": "Active Activities",
+      "totalHours": "Total Hours of the Fortnight",
+      "billingValue": "Billing Value of the Fortnight"
     },
     "sidebar":{
       "morning":"Good Morning",

@@ -5,6 +5,7 @@ import { AuthenticatedLayout } from "./components/authenticated-layout";
 import { useAuth } from "./contexts/auth-context";
 import { HomePage } from "./pages/Home/home";
 import { NotFoundPage } from "./pages/NotFound/not-found";
+import { TasksPage } from "./pages/Tasks/tasks";
 
 export function AppRoutes() {
   const { isAuthenticated } = useAuth();
@@ -23,6 +24,7 @@ export function AppRoutes() {
       <Route element={<ProtectedRoute />}>
         <Route element={<AuthenticatedLayout />}>
           <Route path="/home" element={<HomePage />} />
+          <Route path="/tasks" element={<TasksPage />} />
           {/* Rota para página não encontrada */}
           <Route path="*" element={<NotFoundPage />} />
           {/* Rota para página não encontrada */}

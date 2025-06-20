@@ -41,7 +41,13 @@
     },
     "home":{
       "title":"Bienvenido",
-      "notFound":"404 - Página no encontrada"
+      "notFound":"404 - Página no encontrada",
+      "year": "Año",
+      "month": "Mes",
+      "fortnight": "Quincena",
+      "activeActivities": "Actividades Activas",
+      "totalHours": "Total de Horas de la Quincena",
+      "billingValue": "Valor de Facturación de la Quincena"
     },
     "sidebar":{
       "morning":"Buenos Días",
