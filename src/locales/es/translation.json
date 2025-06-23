@@ -1,65 +1,99 @@
 {
-    "login":{
-      "title":"Registro Exacto",
-      "subTtitle":"Tu jornada laboral, registrada con precisión.",
-      "noAccount":"¿No ha creado una cuenta?",
-      "buttonCreate":"Crear una cuenta",
-      "inputUser":"Correo electrónico",
-      "inputPassword":"Contraseña",
-      "labelForgotPassword":"¿Olvidó su contraseña?",
-      "labelResetPassword":"Restablecer contraseña",
-      "labelDevelopedBy":"Desarrollado por",
-      "buttonAccess":"Acceder",
-      "errorLogin":"Datos no válidos"
+  "login": {
+    "title": "Registro Exacto",
+    "subTtitle": "Tu jornada laboral, registrada con precisión.",
+    "noAccount": "¿No ha creado una cuenta?",
+    "buttonCreate": "Crear una cuenta",
+    "inputUser": "Correo electrónico",
+    "inputPassword": "Contraseña",
+    "labelForgotPassword": "¿Olvidó su contraseña?",
+    "labelResetPassword": "Restablecer contraseña",
+    "labelDevelopedBy": "Desarrollado por",
+    "buttonAccess": "Acceder",
+    "errorLogin": "Datos no válidos"
+  },
+  "resetPassword": {
+    "title": "Restablecer contraseña",
+    "subTitle": "Introduzca su dirección de correo electrónico registrada para recibir el token de validación.",
+    "inputEmail": "Correo Electrónico",
+    "placeholderEmail": "Introduzca su correo electrónico",
+    "labelToken": "¿Ya tiene su contraseña? Haga clic aquí para validar y cambiar su contraseña",
+    "buttonCancel": "Cancelar",
+    "buttonSend": "Enviar",
+    "msgSendToken": "Token enviado correctamente",
+    "msgEmailNotFound": "Correo electrónico no encontrado",
+    "msgErrorSending": "Error al enviar la solicitud",
+    "requiredMsgEmail": "Correo electrónico requerido"
+  },
+  "validateToken": {
+    "title": "Restablecer contraseña",
+    "subTitle": "Introduzca el token que se le envió a su dirección de correo electrónico.",
+    "newPassword": "Introduzca su nueva contraseña y confírmela.",
+    "buttonValidateToken": "Validar token",
+    "buttonCancel": "Cancelar",
+    "labelValidToken": "Token válido",
+    "labelInvalidToken": "Token no válido",
+    "msgSuccess": "Contraseña modificada correctamente",
+    "msgError": "Error al cambiar la contraseña",
+    "labelNewPassword": "Nueva contraseña",
+    "labelConfirmNewPassword": "Confirmar nueva contraseña",
+    "buttonChangePassword": "Cambiar contraseña"
+  },
+  "home": {
+    "title": "Bienvenido",
+    "notFound": "404 - Página no encontrada",
+    "year": "Año",
+    "month": "Mes",
+    "fortnight": "Quincena",
+    "activeActivities": "Actividades Activas",
+    "totalHours": "Total de Horas de la Quincena",
+    "billingValue": "Valor de Facturación de la Quincena"
+  },
+  "sidebar": {
+    "morning": "Buenos Días",
+    "afternoon": "Buenas Tardes",
+    "evening": "Buenas Noches",
+    "optionClockIn": "Registrar Entrada",
+    "optionRegistration": "Registros",
+    "menuRegistration": {
+      "profiles": "Perfil",
+      "tasks": "Tareas",
+      "users": "Usuarios"
     },
-    "resetPassword":{
-      "title":"Restablecer contraseña",
-      "subTitle":"Introduzca su dirección de correo electrónico registrada para recibir el token de validación.",
-      "inputEmail":"Correo Electrónico",
-      "placeholderEmail":"Introduzca su correo electrónico",
-      "labelToken":"¿Ya tiene su contraseña? Haga clic aquí para validar y cambiar su contraseña",
-      "buttonCancel":"Cancelar",
-      "buttonSend":"Enviar",
-      "msgSendToken":"Token enviado correctamente",
-      "msgEmailNotFound":"Correo electrónico no encontrado",
-      "msgErrorSending":"Error al enviar la solicitud",
-      "requiredMsgEmail":"Correo electrónico requerido"
+    "optionReport": "Informe",
+    "menuReport": {
+      "reportAllUsers": "Todos los usuarios",
+      "reportPersonal": "Mi Informe"
+    }
+  },
+  "tasks": {
+    "title": "Lista de Tareas",
+    "buttonNewTask": "Nueva tarea",
+    "table": {
+      "id": "ID",
+      "description": "Descripción",
+      "dateCreated": "Fecha de Creación",
+      "actions": "Acciones",
+      "play": "Iniciar",
+      "stop": "Detener",
+      "edit": "Editar",
+      "delete": "Finalizar"
     },
-    "validateToken":{
-      "title":"Restablecer contraseña",
-      "subTitle":"Introduzca el token que se le envió a su dirección de correo electrónico.",
-      "newPassword":"Introduzca su nueva contraseña y confírmela.",
-      "buttonValidateToken":"Validar token",
-      "buttonCancel":"Cancelar",
-      "labelValidToken":"Token válido",
-      "labelInvalidToken":"Token no válido",
-      "msgSuccess":"Contraseña modificada correctamente",
-      "msgError":"Error al cambiar la contraseña",
-      "labelNewPassword":"Nueva contraseña",
-      "labelConfirmNewPassword":"Confirmar nueva contraseña",
-      "buttonChangePassword":"Cambiar contraseña"
+    "formNewTask": {
+      "ticket": "Ingrese el número del ticket",
+      "description": "Ingrese la descripción",
+      "labelTicket": "Número del ticket",
+      "labelDescription": "Descripción",
+      "title": "Crear nueva tarea",
+      "btnCancel": "Cancelar",
+      "btnSave": "Guardar"
     },
-    "home":{
-      "title":"Bienvenido",
-      "notFound":"404 - Página no encontrada",
-      "year": "Año",
-      "month": "Mes",
-      "fortnight": "Quincena",
-      "activeActivities": "Actividades Activas",
-      "totalHours": "Total de Horas de la Quincena",
-      "billingValue": "Valor de Facturación de la Quincena"
-    },
-    "sidebar":{
-      "morning":"Buenos Días",
-      "afternoon":"Buenas Tardes",
-      "evening":"Buenas Noches",
-      "optionClockIn":"Registrar Entrada",
-      "optionRegistration":"Registros",
-      "menuRegistration":{
-        "profiles":"Perfil",
-        "tasks":"Tareas",
-        "users":"Usuarios"
-      }
+    "api": {
+      "startTaskSuccess": "Tarea iniciada.",
+      "startTaskPlayError": "Ya existe una tarea en curso para este usuario.",
+      "startTaskError": "Usuario o tarea no válida.",
+      "errorStopTask": "¡No hay ninguna tarea de esta actividad en curso para este usuario!",
+      "stopTaskSuccess": "Tarea detenida."
     }
   }
-  
+}

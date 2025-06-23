@@ -10,7 +10,8 @@ import {
 } from "@mui/material";
 import { Ban, Pencil, Play, Trash, EllipsisVertical } from "lucide-react";
 import React, { useState } from "react";
-import { iniciarTarefa } from "../services/tasks";
+import { iniciarTarefa, pararTarefa } from "../services/tasks";
+import DefaultAlertToast from "./default-alert-toast";
 
 interface TableTasksProps {
   tasks: Tasks[] | undefined;
@@ -18,10 +19,10 @@ interface TableTasksProps {
 
 export function TableTasks({ tasks }: TableTasksProps) {
   const { t } = useTranslation();
-
-  // Estado para controlar qual menu está aberto e qual tarefa foi selecionada
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [selectedTask, setSelectedTask] = useState<Tasks | null>(null);
+  const [openAlert, setOpenAlert] = useState(false);
+  const [msgApi, setMsgApi] = useState("");
 
   const handleMenuOpen = (
     event: React.MouseEvent<HTMLElement>,
@@ -36,11 +37,7 @@ export function TableTasks({ tasks }: TableTasksProps) {
     setSelectedTask(null);
   };
 
-  // Exemplo de handlers internos (ajuste depois conforme sua lógica)
   const handlePlay = async () => {
-    // Lógica para iniciar tarefa
-    // Exemplo: console.log("Iniciar", selectedTask);
-    console.log("Iniciar", selectedTask);
     try {
       if (
         selectedTask?.usuarioId !== undefined &&
@@ -48,26 +45,66 @@ export function TableTasks({ tasks }: TableTasksProps) {
       ) {
         await iniciarTarefa(
           parseInt(selectedTask.usuarioId),
-          parseInt(selectedTask.id),
+          selectedTask.id,
           selectedTask.quinzena
         );
-        // Sucesso: tarefa iniciada!
+        setOpenAlert(true);
+        setMsgApi(t("tasks.api.startTaskSuccess"));
       } else {
-        alert("Usuário ou tarefa inválida.");
+        setOpenAlert(true);
+        setMsgApi(t("tasks.api.startTaskError"));
       }
     } catch (err: unknown) {
       if (err instanceof Error) {
-        alert(err.message); // Já existe uma tarefa em andamento para este usuário.
+        setOpenAlert(true);
+        if (
+          err.message === "Já existe uma tarefa em andamento para este usuário."
+        ) {
+          setMsgApi(t("tasks.api.startTaskPlayError"));
+        } else {
+          setMsgApi(err.message);
+        }
       } else {
-        alert("Ocorreu um erro desconhecido."); // Mensagem genérica para erros desconhecidos
+        setOpenAlert(true);
+        setMsgApi("Ocorreu um erro desconhecido.");
       }
     }
     handleMenuClose();
   };
-  const handleBan = () => {
-    // Lógica para pausar tarefa
-    // Exemplo: console.log("Pausar", selectedTask);
-    console.log("Pausar", selectedTask);
+  const handleBan = async () => {
+    try {
+      if (
+        selectedTask?.usuarioId !== undefined &&
+        selectedTask?.id !== undefined &&
+        selectedTask?.quinzena
+      ) {
+        await pararTarefa(
+          parseInt(selectedTask.usuarioId),
+          selectedTask.id,
+          selectedTask.quinzena
+        );
+        setOpenAlert(true);
+        setMsgApi(t("tasks.api.stopTaskSuccess"));
+      } else {
+        setOpenAlert(true);
+        setMsgApi("Dados da tarefa inválidos.");
+      }
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setOpenAlert(true);
+        if (
+          err.message ===
+          "Não existe tarefa dessa atividade em andamento para este usuário!"
+        ) {
+          setMsgApi(t("tasks.api.errorStopTask"));
+        } else {
+          setMsgApi(err.message);
+        }
+      } else {
+        setOpenAlert(true);
+        setMsgApi("Ocorreu um erro desconhecido.");
+      }
+    }
     handleMenuClose();
   };
   const handleEdit = () => {
@@ -85,36 +122,39 @@ export function TableTasks({ tasks }: TableTasksProps) {
 
   return (
     <div className="overflow-x-auto">
-      <table className="min-w-full bg-white rounded-lg overflow-hidden shadow-lg">
+      <table className="min-w-full bg-white dark:bg-indigo-900 rounded-lg overflow-hidden shadow-lg">
         <thead>
           <tr>
-            <th className="py-3 px-4 border-b border-gray-200 text-left text-sm font-medium text-gray-700 bg-gray-50">
+            <th className="py-3 px-4 border-b border-gray-200 text-left text-sm font-medium text-gray-700 dark:text-white bg-gray-50 dark:bg-indigo-900">
               {t("tasks.table.id")}
             </th>
-            <th className="py-3 px-4 border-b border-gray-200 text-left text-sm font-medium text-gray-700 bg-gray-50">
+            <th className="py-3 px-4 border-b border-gray-200 text-left text-sm font-medium text-gray-700 dark:text-white bg-gray-50 dark:bg-indigo-900">
               {t("tasks.table.description")}
             </th>
-            <th className="py-3 px-4 border-b border-gray-200 text-left text-sm font-medium text-gray-700 bg-gray-50">
+            <th className="py-3 px-4 border-b border-gray-200 text-left text-sm font-medium text-gray-700 dark:text-white bg-gray-50 dark:bg-indigo-900">
               {t("tasks.table.dateCreated")}
             </th>
-            <th className="py-3 px-4 border-b border-gray-200 text-left text-sm font-medium text-gray-700 bg-gray-50">
+            <th className="py-3 px-4 border-b border-gray-200 text-left text-sm font-medium text-gray-700 dark:text-white bg-gray-50 dark:bg-indigo-900">
               {t("tasks.table.actions")}
             </th>
           </tr>
         </thead>
         <tbody>
           {tasks?.map((task) => (
-            <tr key={task.id} className="hover:bg-gray-100">
-              <td className="py-2 px-4 border-b border-gray-200 text-left text-sm text-gray-900">
+            <tr
+              key={task.id}
+              className="hover:bg-gray-100 dark:hover:bg-indigo-800"
+            >
+              <td className="py-2 px-4 border-b border-gray-200 text-left text-sm text-gray-900 dark:text-white">
                 {task.id}
               </td>
-              <td className="py-2 px-4 border-b border-gray-200 text-left text-sm text-gray-900">
+              <td className="py-2 px-4 border-b border-gray-200 text-left text-sm text-gray-900 dark:text-white">
                 {task.descricao}
               </td>
-              <td className="py-2 px-4 border-b border-gray-200 text-left text-sm text-gray-900">
+              <td className="py-2 px-4 border-b border-gray-200 text-left text-sm text-gray-900 dark:text-white">
                 {formatDateBR(task.dataCriacao)}
               </td>
-              <td className="py-2 px-4 border-b border-gray-200 text-left text-sm text-gray-900">
+              <td className="py-2 px-4 border-b border-gray-200 text-left text-sm text-gray-900 dark:text-white">
                 <IconButton
                   aria-label="Ações"
                   onClick={(e) => handleMenuOpen(e, task)}
@@ -126,7 +166,12 @@ export function TableTasks({ tasks }: TableTasksProps) {
           ))}
         </tbody>
       </table>
-
+      <DefaultAlertToast
+        open={openAlert}
+        setOpen={setOpenAlert}
+        message={msgApi}
+        actionLabel=""
+      />
       <Menu
         anchorEl={anchorEl}
         open={Boolean(anchorEl)}

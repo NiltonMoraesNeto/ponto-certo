@@ -1,78 +1,113 @@
 {
-    "login":{
-      "title":"Ponto Certo",
-      "subTtitle":"Sua jornada de trabalho, registrada com precisão.",
-      "noAccount":"Não tem conta criada?",
-      "buttonCreate":"Criar Conta",
-      "inputUser":"Email",
-      "inputPassword":"Senha",
-      "labelForgotPassword":"Esqueceu a senha?",
-      "labelResetPassword":"Resetar a senha",
-      "labelDevelopedBy":"Desenvolvido por",
-      "buttonAccess":"Acessar",
-      "errorLogin":"Dados inválidos"
+  "login": {
+    "title": "Ponto Certo",
+    "subTtitle": "Sua jornada de trabalho, registrada com precisão.",
+    "noAccount": "Não tem conta criada?",
+    "buttonCreate": "Criar Conta",
+    "inputUser": "Email",
+    "inputPassword": "Senha",
+    "labelForgotPassword": "Esqueceu a senha?",
+    "labelResetPassword": "Resetar a senha",
+    "labelDevelopedBy": "Desenvolvido por",
+    "buttonAccess": "Acessar",
+    "errorLogin": "Dados inválidos"
+  },
+  "resetPassword": {
+    "title": "Resetar a senha",
+    "subTitle": "Digite seu email cadastrado para receber o token de validação.",
+    "inputEmail": "Email",
+    "placeholderEmail": "Digite seu email",
+    "labelToken": "Já tem o token? Clique aqui para validar e trocar a senha",
+    "buttonCancel": "Cancelar",
+    "buttonSend": "Enviar",
+    "msgSendToken": "Token enviado com sucesso",
+    "msgEmailNotFound": "Email não encontrado",
+    "msgErrorSending": "Erro ao enviar solicitação",
+    "requiredMsgEmail": "Email é obrigatório"
+  },
+  "validateToken": {
+    "title": "Resetar a senha",
+    "subTitle": "Digite o token que foi enviado para seu email.",
+    "newPassword": "Digite a nova senha e confirme.",
+    "buttonValidateToken": "Validar token",
+    "buttonCancel": "Cancelar",
+    "labelValidToken": "Token válido",
+    "labelInvalidToken": "Token inválido",
+    "msgSuccess": "Senha alterada com sucesso",
+    "msgError": "Erro ao alterar a senha",
+    "labelNewPassword": "Nova senha",
+    "labelConfirmNewPassword": "Confirmar nova senha",
+    "buttonChangePassword": "Alterar senha"
+  },
+  "home": {
+    "title": "Bem Vindo",
+    "notFound": "404 - Página Não Encontrada",
+    "year": "Ano",
+    "month": "Mês",
+    "fortnight": "Quinzena",
+    "activeActivities": "Atividades Ativas",
+    "totalHours": "Total de Horas da Quinzena",
+    "billingValue": "Valor Faturamento da Quinzena"
+  },
+  "sidebar": {
+    "morning": "Bom Dia",
+    "afternoon": "Boa Tarde",
+    "evening": "Boa Noite",
+    "optionClockIn": "Registrar Ponto",
+    "optionRegistration": "Cadastros",
+    "menuRegistration": {
+      "profiles": "Perfil",
+      "tasks": "Tarefas",
+      "users": "Usuários"
     },
-    "resetPassword":{
-      "title":"Resetar a senha",
-      "subTitle":"Digite seu email cadastrado para receber o token de validação.",
-      "inputEmail":"Email",
-      "placeholderEmail":"Digite seu email",
-      "labelToken":"Já tem o token? Clique aqui para validar e trocar a senha",
-      "buttonCancel":"Cancelar",
-      "buttonSend":"Enviar",
-      "msgSendToken":"Token enviado com sucesso",
-      "msgEmailNotFound":"Email não encontrado",
-      "msgErrorSending":"Erro ao enviar solicitação",
-      "requiredMsgEmail":"Email é obrigatório"
+    "optionReport": "Relatório",
+    "menuReport": {
+      "reportAllUsers": "Todos os usuários",
+      "reportPersonal": "Meu Relatório"
+    }
+  },
+  "tasks": {
+    "title": "Lista de Tarefas",
+    "buttonNewTask": "Nova tarefa",
+    "table": {
+      "id": "ID",
+      "description": "Descrição",
+      "dateCreated": "Data Criação",
+      "actions": "Ações",
+      "play": "Iniciar",
+      "stop": "Parar",
+      "edit": "Editar",
+      "delete": "Finalizar"
     },
-    "validateToken":{
-      "title":"Resetar a senha",
-      "subTitle":"Digite o token que foi enviado para seu email.",
-      "newPassword":"Digite a nova senha e confirme.",
-      "buttonValidateToken":"Validar token",
-      "buttonCancel":"Cancelar",
-      "labelValidToken":"Token válido",
-      "labelInvalidToken":"Token inválido",
-      "msgSuccess":"Senha alterada com sucesso",
-      "msgError":"Erro ao alterar a senha",
-      "labelNewPassword":"Nova senha",
-      "labelConfirmNewPassword":"Confirmar nova senha",
-      "buttonChangePassword":"Alterar senha"
+    "formNewTask": {
+      "ticket": "Informe o número do ticket",
+      "description": "Informe a descrição",
+      "labelTicket": "Número do ticket",
+      "labelDescription": "Descrição",
+      "title": "Criar nova tarefa",
+      "btnCancel": "Cancelar",
+      "btnSave": "Salvar"
     },
-    "home":{
-      "title":"Bem Vindo",
-      "notFound":"404 - Página Não Encontrada",
-      "year":"Ano",
-      "month":"Mês",
-      "fortnight":"Quinzena",
-      "activeActivities":"Atividades Ativas",
-      "totalHours":"Total de Horas da Quinzena",
-      "billingValue":"Valor Faturamento da Quinzena"
-    },
-    "sidebar":{
-      "morning":"Bom Dia",
-      "afternoon":"Boa Tarde",
-      "evening":"Boa Noite",
-      "optionClockIn":"Registrar Ponto",
-      "optionRegistration":"Cadastros",
-      "menuRegistration":{
-        "profiles":"Perfil",
-        "tasks":"Tarefas",
-        "users":"Usuários"
-      }
-    },
-    "tasks":{
-      "title":"Lista de Tarefas",
-      "table":{
-        "id":"ID",
-        "description":"Descrição",
-        "dateCreated":"Data Criação",
-        "actions":"Ações",
-        "play":"Iniciar",
-        "stop":"Parar",
-        "edit":"Editar",
-        "delete":"Deletar"
-      }
+    "api": {
+      "startTaskSuccess": "Tarefa iniciada.",
+      "startTaskPlayError": "Já existe uma tarefa em andamento para este usuário.",
+      "startTaskError": "Usuário ou tarefa inválida.",
+      "errorStopTask": "Não existe tarefa dessa atividade em andamento para este usuário!",
+      "stopTaskSuccess": "Tarefa parada."
+    }
+  },
+  "reportPersonal": {
+    "title": "Meus Apontamentos",
+    "labelTotalHours": "Horas na quinzena:",
+    "labelExportExcel": "Exportar para Excel",
+    "table": {
+      "id": "ID",
+      "description": "Descrição",
+      "dateCreated": "Data Criação",
+      "dateFinished": "Data Fim",
+      "totalHours": "Total de Horas",
+      "actions": "Ações",
+      "edit": "Editar"
     }
   }
-  
+}

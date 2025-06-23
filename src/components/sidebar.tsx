@@ -21,7 +21,15 @@ import {
 import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/auth-context";
 import { useTheme } from "../contexts/theme-context";
-import { Banknote, HandCoins, PackageOpen, Receipt } from "lucide-react";
+import {
+  Banknote,
+  ChartArea,
+  HandCoins,
+  PackageOpen,
+  Receipt,
+  User,
+  Users,
+} from "lucide-react";
 import { TranslationChange } from "./translation-change";
 import i18n from "../config/i18n";
 import { useTranslation } from "react-i18next";
@@ -215,6 +223,63 @@ const Sidebar: React.FC = () => {
                   ) : (
                     <button>
                       <Banknote />
+                    </button>
+                  )}
+                </ListItem>
+              </List>
+            </Collapse>
+            <Divider sx={{ borderColor: dividerColor }} />
+            {/* Submenu Relatórios */}
+            <ListItem button onClick={() => toggleSubmenu("relatorios")}>
+              <ListItemIcon
+                sx={{ color: theme.theme === "dark" ? "#EA5C11" : "#011F3A" }}
+              >
+                <ChartArea />
+              </ListItemIcon>
+              {isOpen && (
+                <>
+                  <ListItemText primary={t("sidebar.optionReport")} />
+                  {openSubmenus["relatorios"] ? <ExpandLess /> : <ExpandMore />}
+                </>
+              )}
+            </ListItem>
+            <Collapse
+              in={openSubmenus["relatorios"]}
+              timeout="auto"
+              unmountOnExit
+            >
+              <List component="div" disablePadding>
+                <ListItem
+                  button
+                  sx={{ pl: 4 }}
+                  component={Link}
+                  to="/report-all-users"
+                >
+                  {isOpen ? (
+                    <ListItemText
+                      primary={t("sidebar.menuReport.reportAllUsers")}
+                    />
+                  ) : (
+                    <button>
+                      <Users />
+                    </button>
+                  )}
+                </ListItem>
+              </List>
+              <List component="div" disablePadding>
+                <ListItem
+                  button
+                  sx={{ pl: 4 }}
+                  component={Link}
+                  to="/report-personal"
+                >
+                  {isOpen ? (
+                    <ListItemText
+                      primary={t("sidebar.menuReport.reportPersonal")}
+                    />
+                  ) : (
+                    <button>
+                      <User />
                     </button>
                   )}
                 </ListItem>

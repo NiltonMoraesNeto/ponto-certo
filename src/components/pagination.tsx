@@ -1,13 +1,31 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Box, IconButton, Typography } from "@mui/material";
+import {
+  Box,
+  IconButton,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+  Typography,
+} from "@mui/material";
 
 interface PaginationProps {
   page: number;
   totalPages: number;
   setPage: (value: React.SetStateAction<number>) => void;
+  limit: number;
+  setLimit: React.Dispatch<React.SetStateAction<number>>;
 }
 
-export function Pagination({ page, totalPages, setPage }: PaginationProps) {
+export function Pagination({
+  page,
+  totalPages,
+  setPage,
+  limit,
+  setLimit,
+}: PaginationProps) {
+  const handleChange = (event: SelectChangeEvent) => {
+    setLimit(Number(event.target.value));
+  };
   return (
     <Box
       display="flex"
@@ -53,6 +71,19 @@ export function Pagination({ page, totalPages, setPage }: PaginationProps) {
       >
         <ChevronRight />
       </IconButton>
+      <Select
+        labelId="demo-simple-select-label"
+        id="demo-simple-select"
+        value={limit.toString()}
+        label="Items por página"
+        onChange={handleChange}
+      >
+        <MenuItem value={10}>10</MenuItem>
+        <MenuItem value={20}>20</MenuItem>
+        <MenuItem value={50}>50</MenuItem>
+        <MenuItem value={100}>100</MenuItem>
+        <MenuItem value={200}>200</MenuItem>
+      </Select>
     </Box>
   );
 }
