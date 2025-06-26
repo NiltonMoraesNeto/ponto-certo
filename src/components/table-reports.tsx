@@ -10,7 +10,6 @@ import {
 } from "@mui/material";
 import { Pencil, EllipsisVertical } from "lucide-react";
 import React, { useState } from "react";
-import DefaultAlertToast from "./default-alert-toast";
 import { formatMinutesToHHMM } from "../utils/formatMinutesToHHMM";
 
 interface TableReportsProps {
@@ -22,8 +21,6 @@ export function TableReports({ reports, atividadeMap }: TableReportsProps) {
   const { t } = useTranslation();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [selectedTask, setSelectedTask] = useState<ListReports | null>(null);
-  const [openAlert, setOpenAlert] = useState(false);
-  const [msgApi] = useState("");
 
   const handleMenuOpen = (
     event: React.MouseEvent<HTMLElement>,
@@ -39,8 +36,6 @@ export function TableReports({ reports, atividadeMap }: TableReportsProps) {
   };
 
   const handleEdit = () => {
-    // Lógica para editar tarefa
-    // Exemplo: console.log("Editar", selectedTask);
     console.log("Editar", selectedTask);
     handleMenuClose();
   };
@@ -104,12 +99,6 @@ export function TableReports({ reports, atividadeMap }: TableReportsProps) {
           ))}
         </tbody>
       </table>
-      <DefaultAlertToast
-        open={openAlert}
-        setOpen={setOpenAlert}
-        message={msgApi}
-        actionLabel=""
-      />
       <Menu
         anchorEl={anchorEl}
         open={Boolean(anchorEl)}

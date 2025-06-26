@@ -10,31 +10,36 @@ import {
 } from "@mui/material";
 import { Ban, Pencil, Play, Trash, EllipsisVertical } from "lucide-react";
 import React, { useState } from "react";
-import { iniciarTarefa, pararTarefa } from "../services/tasks";
-import DefaultAlertToast from "./default-alert-toast";
+import {
+  atualizarDescricaoStatusTarefa,
+  iniciarTarefa,
+  pararTarefa,
+} from "../services/tasks";
+import { EditTaskModal } from "./edit-task-modal";
+import { useToast } from "../contexts/toast-context";
 
 interface TableTasksProps {
   tasks: Tasks[] | undefined;
+  onRefresh: () => void;
 }
 
-export function TableTasks({ tasks }: TableTasksProps) {
+export function TableTasks({ tasks, onRefresh }: TableTasksProps) {
   const { t } = useTranslation();
+  const { showToast } = useToast();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [selectedTask, setSelectedTask] = useState<Tasks | null>(null);
-  const [openAlert, setOpenAlert] = useState(false);
-  const [msgApi, setMsgApi] = useState("");
+  const [openEditModal, setOpenEditModal] = useState(false);
 
   const handleMenuOpen = (
     event: React.MouseEvent<HTMLElement>,
     task: Tasks
   ) => {
-    setAnchorEl(event.currentTarget);
     setSelectedTask(task);
+    setAnchorEl(event.currentTarget);
   };
 
   const handleMenuClose = () => {
     setAnchorEl(null);
-    setSelectedTask(null);
   };
 
   const handlePlay = async () => {
@@ -48,25 +53,21 @@ export function TableTasks({ tasks }: TableTasksProps) {
           selectedTask.id,
           selectedTask.quinzena
         );
-        setOpenAlert(true);
-        setMsgApi(t("tasks.api.startTaskSuccess"));
+        showToast(t("tasks.api.startTaskSuccess"));
       } else {
-        setOpenAlert(true);
-        setMsgApi(t("tasks.api.startTaskError"));
+        showToast(t("tasks.api.startTaskError"));
       }
     } catch (err: unknown) {
       if (err instanceof Error) {
-        setOpenAlert(true);
         if (
           err.message === "Já existe uma tarefa em andamento para este usuário."
         ) {
-          setMsgApi(t("tasks.api.startTaskPlayError"));
+          showToast(t("tasks.api.startTaskPlayError"));
         } else {
-          setMsgApi(err.message);
+          showToast(err.message);
         }
       } else {
-        setOpenAlert(true);
-        setMsgApi("Ocorreu um erro desconhecido.");
+        showToast(t("tasks.api.errorUnknow"));
       }
     }
     handleMenuClose();
@@ -83,41 +84,73 @@ export function TableTasks({ tasks }: TableTasksProps) {
           selectedTask.id,
           selectedTask.quinzena
         );
-        setOpenAlert(true);
-        setMsgApi(t("tasks.api.stopTaskSuccess"));
+        showToast(t("tasks.api.stopTaskSuccess"));
       } else {
-        setOpenAlert(true);
-        setMsgApi("Dados da tarefa inválidos.");
+        showToast("Dados da tarefa inválidos.");
       }
     } catch (err: unknown) {
       if (err instanceof Error) {
-        setOpenAlert(true);
         if (
           err.message ===
           "Não existe tarefa dessa atividade em andamento para este usuário!"
         ) {
-          setMsgApi(t("tasks.api.errorStopTask"));
+          showToast(t("tasks.api.errorStopTask"));
         } else {
-          setMsgApi(err.message);
+          showToast(err.message);
         }
       } else {
-        setOpenAlert(true);
-        setMsgApi("Ocorreu um erro desconhecido.");
+        showToast(t("tasks.api.errorUnknow"));
       }
     }
     handleMenuClose();
   };
   const handleEdit = () => {
-    // Lógica para editar tarefa
-    // Exemplo: console.log("Editar", selectedTask);
-    console.log("Editar", selectedTask);
+    setOpenEditModal(true);
     handleMenuClose();
   };
-  const handleDelete = () => {
-    // Lógica para deletar tarefa
-    // Exemplo: console.log("Excluir", selectedTask);
+  const handleDelete = async () => {
     console.log("Excluir", selectedTask);
+    if (!selectedTask) return;
+    try {
+      await atualizarDescricaoStatusTarefa({
+        id: selectedTask.id,
+        descricao: selectedTask.descricao,
+        status: false,
+      });
+
+      setSelectedTask(null);
+      showToast(t("tasks.api.finishTaskSuccess"));
+      onRefresh();
+    } catch (error: unknown) {
+      showToast("Error" + error);
+    }
     handleMenuClose();
+  };
+
+  const handleCloseEditModal = () => {
+    setOpenEditModal(false);
+    setSelectedTask(null);
+  };
+
+  const handleEditSubmit = async (data: {
+    descricao: string;
+    status: boolean;
+  }) => {
+    if (!selectedTask) return;
+    try {
+      await atualizarDescricaoStatusTarefa({
+        id: selectedTask.id,
+        descricao: data.descricao,
+        status: data.status,
+      });
+
+      setOpenEditModal(false);
+      setSelectedTask(null);
+      showToast(t("tasks.api.editTaskSuccess"));
+      onRefresh();
+    } catch (error: unknown) {
+      showToast("Error" + error);
+    }
   };
 
   return (
@@ -166,11 +199,11 @@ export function TableTasks({ tasks }: TableTasksProps) {
           ))}
         </tbody>
       </table>
-      <DefaultAlertToast
-        open={openAlert}
-        setOpen={setOpenAlert}
-        message={msgApi}
-        actionLabel=""
+      <EditTaskModal
+        open={openEditModal}
+        onClose={handleCloseEditModal}
+        onSubmit={handleEditSubmit}
+        initialData={selectedTask}
       />
       <Menu
         anchorEl={anchorEl}

@@ -1,6 +1,6 @@
 {
   "login": {
-    "title": "Ponto Certo",
+    "title": "EVERPoint",
     "subTtitle": "Sua jornada de trabalho, registrada com precisão.",
     "noAccount": "Não tem conta criada?",
     "buttonCreate": "Criar Conta",
@@ -93,7 +93,10 @@
       "startTaskPlayError": "Já existe uma tarefa em andamento para este usuário.",
       "startTaskError": "Usuário ou tarefa inválida.",
       "errorStopTask": "Não existe tarefa dessa atividade em andamento para este usuário!",
-      "stopTaskSuccess": "Tarefa parada."
+      "stopTaskSuccess": "Tarefa parada.",
+      "editTaskSuccess": "Tarefa atualizada com sucesso!",
+      "finishTaskSuccess": "Tarefa finalizada com sucesso!",
+      "errorUnknow": "Ocorreu um erro desconhecido."
     }
   },
   "reportPersonal": {
@@ -108,6 +111,39 @@
       "totalHours": "Total de Horas",
       "actions": "Ações",
       "edit": "Editar"
+    },
+    "formEditTask": {
+      "title": "Editar Tarefa",
+      "description": "Descrição obrigatória",
+      "labelDescription": "Descrição",
+      "labelStatusActive": "Ativa",
+      "labelStatusInactive": "Inativa",
+      "btnCancel": "Cancelar",
+      "btnSave": "Salvar"
+    }
+  },
+  "profileModal": {
+    "title": "Informações do usuário",
+    "name": "Nome:",
+    "email": "Email:",
+    "zipCode": "CEP:",
+    "profile": "Perfil:",
+    "close": "Fechar"
+  },
+  "profile": {
+    "title": "Lista de Perfis",
+    "name": "Nome:",
+    "email": "Email:",
+    "zipCode": "CEP:",
+    "profile": "Perfil:",
+    "close": "Fechar",
+    "table": {
+      "id": "ID",
+      "description": "Descrição",
+      "actions": "Ações",
+      "edit": "Editar",
+      "delete": "Deletar",
+      "search": "Pesquisar pela Descrição..."
     }
   }
 }

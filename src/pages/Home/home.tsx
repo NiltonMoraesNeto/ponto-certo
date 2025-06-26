@@ -156,8 +156,10 @@ export function HomePage() {
             sx={{
               width: "100%",
               display: "grid",
-              gridTemplateColumns:
-                "repeat(auto-fill, minmax(min(300px, 100%), 1fr))",
+              gridTemplateColumns: {
+                lg: "repeat(auto-fill, minmax(min(300px, 100%), 1fr))",
+                xl: "repeat(auto-fill, minmax(min(360px, 100%), 1fr))",
+              },
               gap: 2,
             }}
           >

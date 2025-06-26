@@ -174,3 +174,18 @@ export async function criarNovaTarefa({
     quinzena,
   });
 }
+
+export async function atualizarDescricaoStatusTarefa({
+  id,
+  descricao,
+  status,
+}: {
+  id: number | string;
+  descricao: string;
+  status: boolean;
+}) {
+  return api.patch(`/atividades/${id}`, {
+    descricao,
+    status,
+  });
+}

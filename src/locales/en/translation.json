@@ -1,6 +1,6 @@
 {
   "login": {
-    "title": "Accurate Time",
+    "title": "EVERPoint",
     "subTtitle": "Your workday, recorded with precision.",
     "noAccount": "No account created?",
     "buttonCreate": "Create an account",
@@ -93,7 +93,57 @@
       "startTaskPlayError": "There is already a task in progress for this user.",
       "startTaskError": "Invalid user or task.",
       "errorStopTask": "There is no task of this activity in progress for this user!",
-      "stopTaskSuccess": "Task stopped."
+      "stopTaskSuccess": "Task stopped.",
+      "editTaskSuccess": "Task updated successfully!",
+      "finishTaskSuccess": "Task completed successfully!",
+      "errorUnknow": "An unknown error occurred."
+    }
+  },
+  "reportPersonal": {
+    "title": "My Records",
+    "labelTotalHours": "Hours in the fortnight:",
+    "labelExportExcel": "Export to Excel",
+    "table": {
+      "id": "ID",
+      "description": "Description",
+      "dateCreated": "Creation Date",
+      "dateFinished": "End Date",
+      "totalHours": "Total Hours",
+      "actions": "Actions",
+      "edit": "Edit"
+    },
+    "formEditTask": {
+      "title": "Edit Task",
+      "description": "Description is required",
+      "labelDescription": "Description",
+      "labelStatusActive": "Active",
+      "labelStatusInactive": "Inactive",
+      "btnCancel": "Cancel",
+      "btnSave": "Save"
+    }
+  },
+  "profileModal": {
+    "title": "User Information",
+    "name": "Name:",
+    "email": "Email:",
+    "zipCode": "ZIP Code:",
+    "profile": "Profile:",
+    "close": "Close"
+  },
+  "profile": {
+    "title": "Profile List",
+    "name": "Name:",
+    "email": "Email:",
+    "zipCode": "ZIP Code:",
+    "profile": "Profile:",
+    "close": "Close",
+    "table": {
+      "id": "ID",
+      "description": "Description",
+      "actions": "Actions",
+      "edit": "Edit",
+      "delete": "Delete",
+      "search": "Search by Description..."
     }
   }
 }

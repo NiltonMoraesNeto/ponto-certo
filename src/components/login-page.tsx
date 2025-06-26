@@ -105,9 +105,18 @@ export function LoginPage() {
       <div className="flex w-full flex-col items-center justify-center bg-white dark:bg-primaryBlue p-6 md:w-1/2 md:p-12 h-full">
         <div className="w-full max-w-md">
           <div className="text-center">
+            {/* Logo para o tema claro */}
             <img
-              src="/ponto-certo-logo.png"
-              className="items-center mx-auto mb-4 h-44"
+              src="/logo-theme-light.png"
+              className="items-center mx-auto mb-4 h-14 dark:hidden"
+              alt="Logo light"
+            />
+
+            {/* Logo para o tema escuro */}
+            <img
+              src="/logo-theme-dark.png"
+              className="items-center mx-auto mb-4 h-14 hidden dark:block"
+              alt="Logo dark"
             />
           </div>
           {error && (

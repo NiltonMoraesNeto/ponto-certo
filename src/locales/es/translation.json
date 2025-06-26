@@ -1,6 +1,6 @@
 {
   "login": {
-    "title": "Registro Exacto",
+    "title": "EVERPoint",
     "subTtitle": "Tu jornada laboral, registrada con precisión.",
     "noAccount": "¿No ha creado una cuenta?",
     "buttonCreate": "Crear una cuenta",
@@ -93,7 +93,57 @@
       "startTaskPlayError": "Ya existe una tarea en curso para este usuario.",
       "startTaskError": "Usuario o tarea no válida.",
       "errorStopTask": "¡No hay ninguna tarea de esta actividad en curso para este usuario!",
-      "stopTaskSuccess": "Tarea detenida."
+      "stopTaskSuccess": "Tarea detenida.",
+      "editTaskSuccess": "¡Tarea actualizada con éxito!",
+      "finishTaskSuccess": "¡Tarea finalizada con éxito!",
+      "errorUnknow": "Ocurrió un error desconocido."
+    }
+  },
+  "reportPersonal": {
+    "title": "Mis Registros",
+    "labelTotalHours": "Horas en la quincena:",
+    "labelExportExcel": "Exportar a Excel",
+    "table": {
+      "id": "ID",
+      "description": "Descripción",
+      "dateCreated": "Fecha de Creación",
+      "dateFinished": "Fecha de Finalización",
+      "totalHours": "Total de Horas",
+      "actions": "Acciones",
+      "edit": "Editar"
+    },
+    "formEditTask": {
+      "title": "Editar Tarea",
+      "description": "La descripción es obligatoria",
+      "labelDescription": "Descripción",
+      "labelStatusActive": "Activa",
+      "labelStatusInactive": "Inactiva",
+      "btnCancel": "Cancelar",
+      "btnSave": "Guardar"
+    }
+  },
+  "profileModal": {
+    "title": "Información del usuario",
+    "name": "Nombre:",
+    "email": "Correo electrónico:",
+    "zipCode": "Código Postal:",
+    "profile": "Perfil:",
+    "close": "Cerrar"
+  },
+  "profile": {
+    "title": "Lista de Perfiles",
+    "name": "Nombre:",
+    "email": "Correo electrónico:",
+    "zipCode": "Código Postal:",
+    "profile": "Perfil:",
+    "close": "Cerrar",
+    "table": {
+      "id": "ID",
+      "description": "Descripción",
+      "actions": "Acciones",
+      "edit": "Editar",
+      "delete": "Eliminar",
+      "search": "Buscar por Descripción..."
     }
   }
 }

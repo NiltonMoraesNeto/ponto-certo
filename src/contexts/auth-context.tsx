@@ -8,6 +8,7 @@ import {
 import { TokenPayload } from "../model/profile-model";
 import { jwtDecode } from "jwt-decode";
 import { AuthContextType } from "../model/auth-context-model";
+import { fetchProfileById } from "../services/profile";
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
@@ -17,24 +18,31 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [profileUser, setProfileUser] = useState<string>("");
 
   useEffect(() => {
-    const token = localStorage.getItem("auth_token");
-    if (token) {
-      const decoded = jwtDecode<TokenPayload>(token);
-      const currentTime = Date.now() / 1000;
-      if (decoded.exp > currentTime) {
-        setIsAuthenticated(true);
-        setDataUser(decoded);
-      } else {
-        localStorage.removeItem("auth_token");
+    const checkAuth = async () => {
+      const token = localStorage.getItem("auth_token");
+      if (token) {
+        const decoded = jwtDecode<TokenPayload>(token);
+        const currentTime = Date.now() / 1000;
+        if (decoded.exp > currentTime) {
+          const profileName = await fetchProfileById(decoded.perfil);
+          setIsAuthenticated(true);
+          setDataUser(decoded);
+          setProfileUser(profileName[0].descricao);
+        } else {
+          localStorage.removeItem("auth_token");
+        }
       }
-    }
+    };
+    checkAuth();
   }, []);
 
-  const login = () => {
+  const login = async () => {
     const token = localStorage.getItem("auth_token");
     if (token) {
       const decoded = jwtDecode<TokenPayload>(token);
+      const profileName = await fetchProfileById(decoded.perfil);
       setDataUser(decoded);
+      setProfileUser(profileName[0].descricao);
       setIsAuthenticated(true);
     }
   };

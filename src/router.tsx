@@ -7,6 +7,7 @@ import { HomePage } from "./pages/Home/home";
 import { NotFoundPage } from "./pages/NotFound/not-found";
 import { TasksPage } from "./pages/Tasks/tasks";
 import { ReportPersonalPage } from "./pages/ReportPersonal/report-personal";
+import { ProfilesPage } from "./pages/Profile/profile";
 
 export function AppRoutes() {
   const { isAuthenticated } = useAuth();
@@ -27,6 +28,7 @@ export function AppRoutes() {
           <Route path="/home" element={<HomePage />} />
           <Route path="/tasks" element={<TasksPage />} />
           <Route path="/report-personal" element={<ReportPersonalPage />} />
+          <Route path="/profiles" element={<ProfilesPage />} />
           {/* Rota para página não encontrada */}
           <Route path="*" element={<NotFoundPage />} />
           {/* Rota para página não encontrada */}

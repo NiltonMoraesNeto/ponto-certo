@@ -122,12 +122,11 @@ const Sidebar: React.FC = () => {
             >
               {isOpen ? (
                 <div className="text-2xl font-bold hover:text-gray-300 text-primaryBlue dark:text-primaryOrange">
-                  {/* <img src="/ponto-certo-logo.png" className="" /> */}
-                  IMAGEM
+                  <img src="/acom-favicon.svg" className="" />
                 </div>
               ) : (
                 <div className="text-2xl font-bold hover:text-gray-300 text-primaryBlue dark:text-primaryOrange">
-                  PC
+                  EP
                 </div>
               )}
             </Link>

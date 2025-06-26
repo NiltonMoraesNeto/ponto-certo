@@ -10,11 +10,12 @@ import { TableTasks } from "../../components/table-tasks";
 import { Box, Button } from "@mui/material";
 import { Pagination } from "../../components/pagination";
 import { ModalNovaTarefa } from "../../components/modal-new-task";
-import DefaultAlertToast from "../../components/default-alert-toast";
+import { useToast } from "../../contexts/toast-context";
 
 export function TasksPage() {
   const { t } = useTranslation();
   const { dataUser } = useAuth();
+  const { showToast } = useToast();
   const [tasks, setTasks] = useState<Tasks[]>();
   const [loading, setLoading] = useState(true);
   const now = new Date();
@@ -28,31 +29,28 @@ export function TasksPage() {
   const [totalPages, setTotalPages] = useState(1);
   const quinzenaAtual = getQuinzenaString(filtro);
   const [openModal, setOpenModal] = useState(false);
-  const [openAlert, setOpenAlert] = useState(false);
-  const [msgApi, setMsgApi] = useState("");
+
+  const fetchTasks = async () => {
+    setLoading(true);
+    try {
+      const { data, totalCount } = await fetchListTasks(
+        quinzenaAtual,
+        true,
+        parseInt(dataUser?.id ?? "0"),
+        page,
+        limit
+      );
+      setTotalPages(Math.ceil(totalCount / limit));
+      setTasks(data);
+    } catch (error) {
+      showToast("Erro ao buscar atividades: " + error);
+      setTasks([]);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    setLoading(true);
-    const fetchTasks = async () => {
-      try {
-        const { data, totalCount } = await fetchListTasks(
-          quinzenaAtual,
-          true,
-          parseInt(dataUser?.id ?? "0"),
-          page,
-          limit
-        );
-        setTotalPages(Math.ceil(totalCount / limit));
-        setTasks(data);
-      } catch (error) {
-        setOpenAlert(true);
-        setMsgApi("Erro ao buscar atividades: " + error);
-        setTasks([]);
-      } finally {
-        setLoading(false);
-      }
-    };
-
     fetchTasks();
   }, [quinzenaAtual, dataUser?.id, page, limit]);
 
@@ -65,8 +63,7 @@ export function TasksPage() {
       quinzena: quinzenaAtual,
     });
     setOpenModal(false);
-    setOpenAlert(true);
-    setMsgApi("Atividade salva com sucesso");
+    showToast("Atividade salva com sucesso");
     setPage(1);
     setLoading(true);
     const { data, totalCount } = await fetchListTasks(
@@ -104,7 +101,11 @@ export function TasksPage() {
             {t("tasks.buttonNewTask")}
           </Button>
         </div>
-        {loading ? <LoadingSpin /> : <TableTasks tasks={tasks} />}
+        {loading ? (
+          <LoadingSpin />
+        ) : (
+          <TableTasks tasks={tasks} onRefresh={fetchTasks} />
+        )}
         <Box mt={3} display="flex" justifyContent="center">
           <Pagination
             page={page}
@@ -118,12 +119,6 @@ export function TasksPage() {
           open={openModal}
           onClose={() => setOpenModal(false)}
           onSubmit={handleNovaTarefa}
-        />
-        <DefaultAlertToast
-          open={openAlert}
-          setOpen={setOpenAlert}
-          message={msgApi}
-          actionLabel=""
         />
       </div>
     </div>
