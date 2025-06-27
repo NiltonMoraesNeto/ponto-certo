@@ -55,7 +55,7 @@ export function TableProfiles({ profile }: TableProfilesProps) {
             <th className="py-3 px-4 border-b border-gray-200 text-left text-sm font-medium text-gray-700 dark:text-white bg-gray-50 dark:bg-indigo-900">
               {t("profile.table.description")}
             </th>
-            <th className="py-3 px-4 border-b border-gray-200 text-left text-sm font-medium text-gray-700 dark:text-white bg-gray-50 dark:bg-indigo-900">
+            <th className="py-3 px-4 border-b border-gray-200 text-right text-sm font-medium text-gray-700 dark:text-white bg-gray-50 dark:bg-indigo-900">
               {t("profile.table.actions")}
             </th>
           </tr>
@@ -72,7 +72,7 @@ export function TableProfiles({ profile }: TableProfilesProps) {
               <td className="py-2 px-4 border-b border-gray-200 text-left text-sm text-gray-900 dark:text-white">
                 {profiles.descricao}
               </td>
-              <td className="py-2 px-4 border-b border-gray-200 text-left text-sm text-gray-900 dark:text-white">
+              <td className="py-2 px-4 border-b border-gray-200 text-right text-sm text-gray-900 dark:text-white">
                 <IconButton
                   aria-label="Ações"
                   onClick={(e) => handleMenuOpen(e, profiles)}

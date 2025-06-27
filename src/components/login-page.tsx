@@ -118,6 +118,9 @@ export function LoginPage() {
               className="items-center mx-auto mb-4 h-14 hidden dark:block"
               alt="Logo dark"
             />
+            <div className="block sm:hidden">
+              <ThemeToggle />
+            </div>
           </div>
           {error && (
             <div className="mt-4 p-3 bg-red-100 text-red-700 rounded-md text-sm">
