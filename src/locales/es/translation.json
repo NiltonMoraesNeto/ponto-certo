@@ -144,6 +144,28 @@
       "edit": "Editar",
       "delete": "Eliminar",
       "search": "Buscar por Descripción..."
+    },
+    "formNewProfile": {
+      "description": "Descripción obligatoria",
+      "labelDescription": "Descripción",
+      "btnCancel": "Cancelar",
+      "btnSave": "Guardar",
+      "btnNewProfile": "Nuevo Perfil",
+      "title": "Agregar Nuevo Perfil",
+      "msgSuccess": "¡Perfil agregado con éxito!",
+      "msgError": "Error al agregar el perfil"
+    },
+    "formDeleteProfile": {
+      "title": "Confirmar eliminación",
+      "text": "¿Está seguro de que desea eliminar esto? Esta acción es irreversible.",
+      "labelNameProfile": "Nombre del Perfil:",
+      "btnCancel": "Cancelar",
+      "btnDelete": "Eliminar",
+      "msgSuccess": "¡Perfil eliminado con éxito!",
+      "msgError": "Error al eliminar el perfil"
+    },
+    "formEditProfile": {
+      "title": "Editar Perfil"
     }
   }
 }

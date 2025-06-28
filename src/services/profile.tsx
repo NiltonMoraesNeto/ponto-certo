@@ -6,6 +6,7 @@ export async function fetchProfileById(id: string) {
   });
   return response.data;
 }
+
 export async function fetchAllListProfiles(
   page: number,
   limit: number,
@@ -30,5 +31,38 @@ export async function fetchAllListProfiles(
   } catch (error) {
     console.error("Erro ao buscar perfil:", error);
     throw error;
+  }
+}
+
+export async function createNewProfile(descricao: string) {
+  try {
+    const response = await api.post("/perfil", { descricao });
+    return { success: true, data: response.data };
+  } catch (error) {
+    return { success: false, error };
+  }
+}
+
+export async function updateProfile({
+  id,
+  descricao,
+}: {
+  id: string;
+  descricao: string;
+}) {
+  try {
+    const response = await api.put(`/perfil/${id}`, { descricao });
+    return { success: true, data: response.data };
+  } catch (error) {
+    return { success: false, error };
+  }
+}
+
+export async function deleteProfile(id: string) {
+  try {
+    await api.delete(`/perfil/${id}`);
+    return { success: true };
+  } catch (error) {
+    return { success: false, error };
   }
 }

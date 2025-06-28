@@ -12,9 +12,15 @@ import { ProfileList } from "../model/profile-model";
 
 interface TableProfilesProps {
   profile: ProfileList[] | undefined;
+  onDelete: (profile: ProfileList) => void;
+  onEdit: (profile: ProfileList) => void;
 }
 
-export function TableProfiles({ profile }: TableProfilesProps) {
+export function TableProfiles({
+  profile,
+  onDelete,
+  onEdit,
+}: TableProfilesProps) {
   const { t } = useTranslation();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [selectedProfile, setSelectedProfile] = useState<ProfileList | null>(
@@ -35,12 +41,16 @@ export function TableProfiles({ profile }: TableProfilesProps) {
   };
 
   const handleEdit = () => {
-    console.log("Editar", selectedProfile);
+    if (selectedProfile) {
+      onEdit(selectedProfile);
+    }
     handleMenuClose();
   };
 
   const handleDelete = () => {
-    console.log("Deletar", selectedProfile);
+    if (selectedProfile) {
+      onDelete(selectedProfile);
+    }
     handleMenuClose();
   };
 

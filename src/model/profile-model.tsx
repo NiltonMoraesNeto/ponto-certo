@@ -16,3 +16,7 @@ export interface ProfileList {
 export interface FormDataAddProfile {
   descricao: string;
 }
+
+export type NewProfileForm = {
+  descricao: string;
+};
